@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FANLIVE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <h1 class="main-title">⚡ FANLIVE</h1>
+
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All Events <span id="all-count" class="count-badge">0</span></button>
+            <button class="filter-btn" data-filter="LIVE">Live Now <span id="live-count" class="count-badge">0</span></button>
+            <button class="filter-btn" data-filter="UPCOMING">Upcoming <span id="upcoming-count" class="count-badge">0</span></button>
+        </div>
+        <div id="matches-grid" class="grid-container">
+            </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

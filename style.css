@@ -1,0 +1,181 @@
+:root {
+    --primary-bg: #121212;
+    --card-bg: #1e1e1e;
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --accent-color: #00a82d;
+    --border-color: #333333;
+    --active-blue: #007bff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.main-title {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* --- ফিল্টার বাটনের জন্য নতুন স্টাইল শুরু --- */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    background-color: var(--card-bg);
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.filter-btn {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.count-badge {
+    background-color: #444;
+    color: var(--text-primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-btn.active {
+    background-color: var(--text-primary);
+    color: var(--active-blue);
+}
+
+.filter-btn.active .count-badge {
+    background-color: var(--active-blue);
+    color: var(--text-primary);
+}
+/* --- ফিল্টার বাটনের জন্য নতুন স্টাইল শেষ --- */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.match-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.match-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.thumbnail-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.status-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-badge.live { background-color: #ff0000; }
+.status-badge.upcoming { background-color: #007bff; }
+.status-badge.paused { background-color: #ffc107; color: #000; }
+
+
+.card-content {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.tournament-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+}
+
+.match-info {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0 0 10px 0;
+}
+
+.start-time {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: auto;
+}
+
+.watch-options {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.watch-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--accent-color);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.watch-btn:hover {
+    background-color: #008f25;
+}
