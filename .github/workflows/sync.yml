@@ -1,0 +1,36 @@
+name: Sync Fancode JSON File Only every 5 minutes
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  sync-json:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Your Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.SYNC_TOKEN }}
+
+      # শুধু এই URL-টি পরিবর্তন করা হয়েছে
+      - name: Download latest fancode.json from Upstream
+        run: |
+          curl -o fancode.json "https://raw.githubusercontent.com/drmlive/fancode-live-events/main/fancode.json"
+
+      - name: Commit and Push if changed
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          # এখানে ফাইলের নাম fancode.json হবে
+          git add fancode.json
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit. fancode.json is already up-to-date."
+          else
+            git commit -m "Auto-update fancode.json from upstream"
+            git push
+          fi
